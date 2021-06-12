@@ -125,6 +125,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'ecommerce/static/' #Задаём путь для статических файлов
+]
+
+STATIC_ROOT = BASE_DIR / 'static' #Реальный пуль к медиафайлам
+
 STATIC_URL = '/static/'
 
 # Default primary key field type
