@@ -7,6 +7,11 @@ class Category(models.Model):
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to = 'category', blank=True)
 
+    class Meta:
+        ordering = ('name', )
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+
     def __str__(self):
         return  self.name
 
@@ -21,6 +26,11 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True) #Автоматическое датирование создания записи о товаре
     updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('name', )
+        verbose_name = 'product'
+        verbose_name_plural = 'products'
 
     def __str__(self): #Для отображения в БД реальных названий полей
         return self.name
