@@ -42,3 +42,48 @@ class Product(models.Model):
     def __str__(self): #Для отображения в БД реальных названий полей
         return self.name
 
+class Cart(models.Model):
+    cart_id = models.CharField(max_length=250, blank=True)
+    date_added = models.DateField(auto_now=True)
+
+    class Meta:
+        ordering = ['date_added']
+        db_table = 'Cart'
+
+    def __str__(self): #Для отображения в БД реальных названий полей
+        return self.cart_id
+
+class DeliveryType(models.Model):
+    delivery_name = models.CharField(max_length=250, blank=True)
+    delivery_price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self): #Для отображения в БД реальных названий полей
+        return self.delivery_name
+
+class CatItem(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    active = models.BooleanField(default=True)
+    delivery_selection = models.ForeignKey(DeliveryType, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'CartItem'
+
+    def sub_total(self):
+        return self.product.price * self.quantity
+
+    def __str__(self): #Для отображения в БД реальных названий полей
+        return self.product
+
+
+
+class OrderStatus(models.Model):
+    order_status= models.CharField(max_length=50, blank=True)
+
+    def __str__(self): #Для отображения в БД реальных названий полей
+        return self.order_status
+
+
+
+

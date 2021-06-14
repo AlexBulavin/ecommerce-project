@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Cart page
+{% endblock %}
+
+{% block content %}
+  <div class="text-center">
+    <br>
+    <div class="text-center product_title">
+      Shopping cart
+      {{product.title}}
+    </div>
+  </div>
+  <div class="row mx-auto">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+      <table class="table cart-table">
+        <thead class="cart-thead">
+          <tr>
+            <th colspan="4">
+              Your items
+            </th>
+          </tr>
+        </thead>
+        {% for i in '123'%}
+          <tr>
+            <td>
+              <a href="">
+                <img src="{% static 'images/mobile-logo.svg' %}">
+              </a>
+            </td>
+            <td class="text-start">
+              Product name here
+              <br>
+              SKU: 7
+              <br>
+              Unit price: $20
+              <br>
+              Quantity: 3
+            </td>
+            <td class="text-start">
+              Total sum: $60
+            </td>
+            <td>
+<!--              <div class="col-8 col-md-3 px-0 py-1 py-md-3 text-md-center">-->
+                <button type="button" data-yandex-action="MinusProduct" class="btn btn-cart-action btn-sm btn-light my-2">
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" class="svg-inline--fa fa-minus fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path fill="currentColor" d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+                    </path>
+                  </svg>
+                </button>
+                <strong class="mx-3 mx-md-1">3</strong>
+                <button type="button" data-yandex-action="PlusProduct" class="btn btn-cart-action btn-sm btn-light my-2">
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+                    </path>
+                  </svg>
+                </button>
+<!--              </div>-->
+              <a href="" style="text-decoration: none;">
+                <i class="material-icons cart-icon">remove</i>
+              </a>
+                 3
+              <a href=""style="text-decoration: none;">
+                <i class="material-icons cart-icon">add</i>
+              </a>
+              <a href=""style="text-decoration: none;">
+                <i class="material-icons cart-icon">delete</i>
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+      <table class="table cart-table">
+        <thead class="cart-thead">
+        <tr>
+          <th colspan="4">
+            Check out
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Please check your cart before payment.
+            </td>
+          </tr>
+          <tr class="text-start">
+            <td>
+              Your total bill is: <strong>$60</strong>.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="mx-auto">
+        <a href="" style="text-decoration: none;">
+          <button type="button" class="btn btn-lg btn-block bg-dark text-white">
+            Back to products
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
