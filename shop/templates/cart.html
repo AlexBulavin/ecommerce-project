@@ -7,6 +7,18 @@ Cart page
 {% endblock %}
 
 {% block content %}
+  {% if not cart_items %}
+  <div class="text-center">
+    <br>
+    <h1 class="text-center product-title">
+      Your cart is empty
+    </h1>
+    <br>
+    <p class="text-center">
+      Click <a href="{% url 'home' %}">here</a> to go back to products
+    </p>
+  </div>
+  {% else %}
   <div class="text-center">
     <br>
     <div class="text-center product_title">
@@ -24,52 +36,65 @@ Cart page
             </th>
           </tr>
         </thead>
-        {% for i in '123'%}
+        {% for cart_item in cart_items %}
           <tr>
             <td>
-              <a href="">
-                <img src="{% static 'images/mobile-logo.svg' %}">
+              <a href="cart_item.product.get_url">
+                <img src="{{ cart_item.product.image.url }}">
               </a>
             </td>
             <td class="text-start">
-              Product name here
+              {{cart_item.product.name}}
               <br>
-              SKU: 7
+              SKU: {{cart_item.product.id}}
               <br>
-              Unit price: $20
+              Unit price: ${{cart_item.product.price}}
               <br>
-              Quantity: 3
+              Quantity: {{cart_item.product.quantity}}
             </td>
             <td class="text-start">
-              Total sum: $60
+              Total sum: ${{cart_item.subtotal}}
             </td>
+            {% if cart_item.quantity < cart_item.product_stock %}
             <td>
-<!--              <div class="col-8 col-md-3 px-0 py-1 py-md-3 text-md-center">-->
-                <button type="button" data-yandex-action="MinusProduct" class="btn btn-cart-action btn-sm btn-light my-2">
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" class="svg-inline--fa fa-minus fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path fill="currentColor" d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
-                    </path>
-                  </svg>
-                </button>
-                <strong class="mx-3 mx-md-1">3</strong>
-                <button type="button" data-yandex-action="PlusProduct" class="btn btn-cart-action btn-sm btn-light my-2">
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
-                    </path>
-                  </svg>
-                </button>
-<!--              </div>-->
+              <!--              <div class="col-8 col-md-3 px-0 py-1 py-md-3 text-md-center">-->
+              <button type="button" data-yandex-action="MinusProduct" class="btn btn-cart-action btn-sm btn-light my-2">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" class="svg-inline--fa fa-minus fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <path fill="currentColor" d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+                  </path>
+                </svg>
+              </button>
+              <strong class="mx-3 mx-md-1">3</strong>
+              <button type="button" data-yandex-action="PlusProduct" class="btn btn-cart-action btn-sm btn-light my-2">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+                  </path>
+                </svg>
+              </button>
+              <!--              </div>-->
               <a href="" style="text-decoration: none;">
                 <i class="material-icons cart-icon">remove</i>
               </a>
-                 3
-              <a href=""style="text-decoration: none;">
+              {{counter}}
+              <a href="{% 'add_cart' cart_items.product.id %}"style="text-decoration: none;">
                 <i class="material-icons cart-icon">add</i>
               </a>
               <a href=""style="text-decoration: none;">
                 <i class="material-icons cart-icon">delete</i>
               </a>
             </td>
+            {% else %}
+            <td>
+              <a href="" style="text-decoration: none;">
+                <i class="material-icons cart-icon">remove</i>
+              </a>
+              {{counter}}
+              <a href=""style="text-decoration: none;">
+                <i class="material-icons cart-icon">delete</i>
+              </a>
+            </td>
+            {% endif %}
+
           </tr>
         {% endfor %}
       </table>
@@ -91,13 +116,13 @@ Cart page
           </tr>
           <tr class="text-start">
             <td>
-              Your total bill is: <strong>$60</strong>.
+              Your total bill is: <strong>${{total}}</strong>.
             </td>
           </tr>
         </tbody>
       </table>
       <div class="mx-auto">
-        <a href="" style="text-decoration: none;">
+        <a href="{% url 'home' %}" style="text-decoration: none;">
           <button type="button" class="btn btn-lg btn-block bg-dark text-white">
             Back to products
           </button>
@@ -105,6 +130,6 @@ Cart page
       </div>
     </div>
   </div>
-
+  {% endif %}
 
 {% endblock %}
