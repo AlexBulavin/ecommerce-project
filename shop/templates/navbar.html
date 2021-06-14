@@ -1,6 +1,559 @@
 {% load static %}
+<head><meta name="viewport" content="width=device-width"><meta charset="utf-8"><meta name="theme-color" content="#1F1F30"><link rel="mask-icon" href="/assets/icon/favicon.svg" sizes="any" type="image/svg+xml"><link rel="icon" href="/assets/icon/favicon.png" sizes="16x16" type="image/png"><link rel="icon" href="/assets/icon/favicon.ico" sizes="16x16 32x32" type="image/vnd.microsoft.icon"><meta property="og:title" content="SkyMoney"><meta property="og:image" content="/assets/icon/favicon.svg"><meta property="og:image:secure_url" content="/assets/icon/favicon.svg"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="48px"><meta property="og:image:height" content="48px"><meta property="og:image:alt" content="SkyMoney"><meta property="og:description" content="Ешь и зарабатывай. Покупай трофеи за полцены."><title>SkyMoney - Покупай трофеи за полцены</title><style>svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.225em;
+}
+.svg-inline--fa.fa-w-1 {
+  width: 0.0625em;
+}
+.svg-inline--fa.fa-w-2 {
+  width: 0.125em;
+}
+.svg-inline--fa.fa-w-3 {
+  width: 0.1875em;
+}
+.svg-inline--fa.fa-w-4 {
+  width: 0.25em;
+}
+.svg-inline--fa.fa-w-5 {
+  width: 0.3125em;
+}
+.svg-inline--fa.fa-w-6 {
+  width: 0.375em;
+}
+.svg-inline--fa.fa-w-7 {
+  width: 0.4375em;
+}
+.svg-inline--fa.fa-w-8 {
+  width: 0.5em;
+}
+.svg-inline--fa.fa-w-9 {
+  width: 0.5625em;
+}
+.svg-inline--fa.fa-w-10 {
+  width: 0.625em;
+}
+.svg-inline--fa.fa-w-11 {
+  width: 0.6875em;
+}
+.svg-inline--fa.fa-w-12 {
+  width: 0.75em;
+}
+.svg-inline--fa.fa-w-13 {
+  width: 0.8125em;
+}
+.svg-inline--fa.fa-w-14 {
+  width: 0.875em;
+}
+.svg-inline--fa.fa-w-15 {
+  width: 0.9375em;
+}
+.svg-inline--fa.fa-w-16 {
+  width: 1em;
+}
+.svg-inline--fa.fa-w-17 {
+  width: 1.0625em;
+}
+.svg-inline--fa.fa-w-18 {
+  width: 1.125em;
+}
+.svg-inline--fa.fa-w-19 {
+  width: 1.1875em;
+}
+.svg-inline--fa.fa-w-20 {
+  width: 1.25em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-border {
+  height: 1.5em;
+}
+.svg-inline--fa.fa-li {
+  width: 2em;
+}
+.svg-inline--fa.fa-fw {
+  width: 1.25em;
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: #ff253a;
+  border-radius: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  height: 1.5em;
+  line-height: 1;
+  max-width: 5em;
+  min-width: 1.5em;
+  overflow: hidden;
+  padding: 0.25em;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: 0;
+  right: 0;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: 0;
+  left: 0;
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  right: 0;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: 0;
+  right: auto;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.fa-lg {
+  font-size: 1.3333333333em;
+  line-height: 0.75em;
+  vertical-align: -0.0667em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
+}
+
+.fa-border {
+  border: solid 0.08em #eee;
+  border-radius: 0.1em;
+  padding: 0.2em 0.25em 0.15em;
+}
+
+.fa-pull-left {
+  float: left;
+}
+
+.fa-pull-right {
+  float: right;
+}
+
+.fa.fa-pull-left,
+.fas.fa-pull-left,
+.far.fa-pull-left,
+.fal.fa-pull-left,
+.fab.fa-pull-left {
+  margin-right: 0.3em;
+}
+.fa.fa-pull-right,
+.fas.fa-pull-right,
+.far.fa-pull-right,
+.fal.fa-pull-right,
+.fab.fa-pull-right {
+  margin-left: 0.3em;
+}
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear;
+}
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+          animation: fa-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1);
+}
+
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1);
+}
+
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-flip-both {
+  -webkit-filter: none;
+          filter: none;
+}
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: #fff;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+.fad.fa-inverse {
+  color: #fff;
+}</style><meta name="next-head-count" content="16"><link rel="preload" href="/_next/static/css/b50603e751d8e7001b0c.css" as="style"><link rel="stylesheet" href="/_next/static/css/b50603e751d8e7001b0c.css" data-n-g=""><link rel="preload" href="/_next/static/css/08d30a00fba66c1a620f.css" as="style"><link rel="stylesheet" href="/_next/static/css/08d30a00fba66c1a620f.css" data-n-g=""><link rel="preload" href="/_next/static/css/22749828cbd70fa2bafa.css" as="style"><link rel="stylesheet" href="/_next/static/css/22749828cbd70fa2bafa.css" data-n-p=""><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/main-86e750d7f3aedf8f223e.js" as="script"><link rel="preload" href="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"><link rel="preload" href="/_next/static/chunks/framework.29f9e2f3d4a33bafbaa5.js" as="script"><link rel="preload" href="/_next/static/chunks/cb1608f2.4b0de9d805fe9c6e7363.js" as="script"><link rel="preload" href="/_next/static/chunks/29df8aa4.34e373399cdc573d23ed.js" as="script"><link rel="preload" href="/_next/static/chunks/commons.e0ef861b00bfe79a3876.js" as="script"><link rel="preload" href="/_next/static/chunks/d12f1354fe4f1e8606fe24087d307ab49a0d541b.dd3ead6cb5355c10787f.js" as="script"><link rel="preload" href="/_next/static/chunks/114bd0b3b11942d8b31e9d7f2566084a315c5cef.e1e02dba33bcd8e81a24.js" as="script"><link rel="preload" href="/_next/static/chunks/5ce6575f3b761e8ef8ef304d595bee01c2729388.0df121d96da07a41ab64.js" as="script"><link rel="preload" href="/_next/static/chunks/76f695f7c9f3ccab566c5268d8987ed39e79284a.6cd5eccf742b51cffea2.js" as="script"><link rel="preload" href="/_next/static/chunks/pages/_app-37243d5e116a309773c2.js" as="script"><link rel="preload" href="/_next/static/chunks/8f6665deb8417832b1b1b0c269b24b9d525d89b3.92ed6a824aefac239d86.js" as="script"><link rel="preload" href="/_next/static/chunks/pages/index-251a4e904ef61d071c55.js" as="script"><link as="script" rel="prefetch" href="/_next/static/chunks/pages/offers/%5Bid%5D-2d04747a9b9b2bc15e9b.js"><link as="script" rel="prefetch" href="/_next/static/chunks/pages/cart-a82f99c0d8f4b7e56aa3.js"><link as="script" rel="prefetch" href="/_next/static/chunks/8f6665deb8417832b1b1b0c269b24b9d525d89b3.92ed6a824aefac239d86.js"><link as="script" rel="prefetch" href="/_next/static/chunks/pages/index-251a4e904ef61d071c55.js"><link as="script" rel="prefetch" href="/_next/static/chunks/883632af17cebe9c115b62ff46854d24294a5a9b.04bb82801784b4765e72.js"><link as="script" rel="prefetch" href="/_next/static/chunks/pages/profile/operations-a171d2a8172850752af1.js"><link as="script" rel="prefetch" href="/_next/static/chunks/pages/posts/%5Bslug%5D-caab3e217981ad119669.js"></head>
+<!--<header id="header" class="header" data-environment="production">-->
+<!--  <nav class="header__global">-->
+<!--    <ul class="container-skm global">-->
+<!--      <li class="global__item">-->
+<!--        <a target="_blank" class="global__item__link" href="https://readyforsky.com/">Ready for Sky</a>-->
+<!--      </li>-->
+<!--      <li class="global__item">-->
+<!--        <a target="_blank" class="global__item__link" href="http://skyservices.club/skymarket">СкайМаркет</a>-->
+<!--      </li>-->
+<!--      <li class="global__item">-->
+<!--        <a target="_blank" class="global__item__link" href="https://skyservices.club/skyrecipes">СкайРецепты</a>-->
+<!--      </li>-->
+<!--      <li class="global__item">-->
+<!--        <a class="global__item__link global__item__link&#45;&#45;active" href="/">СкайМани</a>-->
+<!--      </li>-->
+<!--      <li class="global__item global__item&#45;&#45;city-selection">-->
+<!--        <button class="global__item__button">Москва&lt;!&ndash; &ndash;&gt;&nbsp;<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt" class="svg-inline&#45;&#45;fa fa-map-marker-alt fa-w-12 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg></button>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </nav>-->
+<!--  <nav class="header__main-header container-skm">-->
+<!--    <div class="main-header__container">-->
+<!--      <ul class="main-header__header-link-list">-->
+<!--        <li class="header-link-list__item">-->
+<!--          <a class="main-header__logo" href="/">-->
+<!--            <img src="/assets/img/logo/main-logo.svg" height="30" alt="SkyMoney">-->
+<!--          </a>-->
+<!--          <a class="main-header__logo&#45;&#45;mobile" href="/">-->
+<!--            <img src="/assets/img/logo/mobile-logo.svg" height="16" alt="SkyMoney">-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li class="header-link-list__item  header-link-list__item&#45;&#45;display">-->
+<!--          <button class="button-primary button-primary-s HeaderCatalogNavigation_catalogButton__zQntD">-->
+<!--            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline&#45;&#45;fa fa-bars fa-w-14 HeaderCatalogNavigation_barsIcon__2HUqI" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">-->
+<!--              <path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">-->
+<!--              </path>-->
+<!--            </svg>Каталог трофеев-->
+<!--          </button>-->
+<!--          <div class="HeaderCatalogNavigation_categoriesContainer__KZfI5">-->
+<!--            <div class="container-skm HeaderCatalogNavigation_categoriesWrapper__1DLm-">-->
+<!--              <ul class="HeaderCatalogNavigation_baseCategoryList__2pJws">-->
+<!--                <li>-->
+<!--                  <button data-yandex-action="Cat91" class="HeaderCatalogNavigation_button__16wk2">-->
+<!--                    Красота и здоровье-->
+<!--                  </button>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                  <button data-yandex-action="Cat35" class="HeaderCatalogNavigation_button__16wk2">-->
+<!--                    Техника для дома-->
+<!--                  </button>-->
+<!--                </li>-->
+<!--                <li><button data-yandex-action="Cat1" class="HeaderCatalogNavigation_button__16wk2">-->
+<!--                  Техника для кухни-->
+<!--                </button>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                  <button data-yandex-action="Cat61" class="HeaderCatalogNavigation_button__16wk2">-->
+<!--                    Электроника-->
+<!--                  </button>-->
+<!--                </li>-->
+<!--              </ul>-->
+<!--              <ul class="HeaderCatalogNavigation_middleCategory__mLoeu">-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--        <li class="header-link-list__item header-link-list__item&#45;&#45;display">-->
+<!--          <a data-yandex-action="Regulations" target="_blank" href="/assets/regulations/loyalty-program-1.pdf">-->
+<!--            Правила программы-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li class="header-link-list__item login header-link-list__item&#45;&#45;display">-->
+<!--          <a class="login__link" href="/profile/operations">-->
+<!--            <span class="login__hint">Ты заработал</span>-->
+<!--            <span class="login__balance"><span>0</span> баллов</span>-->
+<!--          </a>-->
+<!--          <div class="login__popup">-->
+<!--            <p>Войди в аккаунт Ready for Sky, чтобы копить баллы и покупать трофеи</p>-->
+<!--            <a class="button-primary button-primary-m" data-yandex-action="EnterScore" href="/auth/code">-->
+<!--              Войти-->
+<!--            </a>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--      <ul class="main-header__header-link-list main-header__header-link-list&#45;&#45;profile">-->
+<!--        <li class="login-profile">-->
+<!--          <a class="navbar-right__link navbar-right__link&#45;&#45;profile" data-yandex-action="EnterSimple" href="/auth/code">-->
+<!--            <span class="navbar-right__text">Войти</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a class="navbar-right__link navbar-right__link&#45;&#45;cart" data-yandex-action="ToCart" href="/cart">-->
+<!--            <span class="navbar-right__text">Корзина</span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </nav>-->
+<!--</header>-->
 <nav class="navbar navbar-expand-md navbar-light bg-dark" >
-  <a href="#" class="navbar-brand "><i class="material-icons text-success md-48" style="font-size: 48px; margin-left: 10px">store</i></a>
+  <a href="/" class="navbar-brand ">
+    <img class="img-fluid" src="{% static 'images/main-logo.svg'%}" style="padding-left: 10px; background-color: white ">
+  </a>
   <button class="navbar-toggler bg-light" style="margin-right: 10px; " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

@@ -9,7 +9,7 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <img class="img-fluid" src="{% static 'images/sale1.png'%}" style="padding-left: 0px; padding-right: 0px; ">
+            <img class="img-fluid" src="{% static 'images/main_image.png'%}" style="padding-left: 0px; padding-right: 0px; ">
         </div>
 
     </div>
@@ -31,7 +31,9 @@
                 <div class="col-9 mx-auto col-md-6 col-lg-3">
                     <div class="card mb-4 shadow" style="border-radius: 8px">
                         <div class="p-4" >
-                            <img class="card-img-top" src="{{product.image.url}}" style="border-radius: 5px" alt="{{product.name}}">
+                            <a href="{{product.get_url}}">
+                                <img class="card-img-top" src="{{product.image.url}}" style="border-radius: 5px" alt="{{product.name}}">
+                            </a>
                         </div>
                             <div class="card-footer d-flex justify-content-between" style="background: transparent; border-color: transparent;">
                                 <p class="font-weight-bold mb-0">

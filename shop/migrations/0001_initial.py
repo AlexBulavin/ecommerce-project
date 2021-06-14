@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=250, unique=True)),
                 ('slug', models.SlugField(max_length=250, unique=True)),
                 ('description', models.TextField(blank=True)),
-                ('image', models.ImageField(blank=True, upload_to='category')),
+                ('main_image.png', models.ImageField(blank=True, upload_to='category')),
             ],
         ),
         migrations.CreateModel(
@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(max_length=250, unique=True)),
                 ('description', models.TextField(blank=True)),
                 ('price', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('image', models.ImageField(blank=True, upload_to='product')),
+                ('main_image.png', models.ImageField(blank=True, upload_to='product')),
                 ('stock', models.IntegerField()),
                 ('available', models.BooleanField(default=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
