@@ -4,6 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 
+
 def home(request, category_slug=None):
     category_page = None
     products = None
@@ -13,7 +14,8 @@ def home(request, category_slug=None):
     else:
         products = Product.objects.all().filter(available=True)
 
-    return render(request, 'home.html', {'category':category_page, 'products':products})
+    return render(request, 'home.html', {'category': category_page, 'products': products})
+
 
 def product(request, category_slug, product_slug):
     try:
@@ -25,11 +27,13 @@ def product(request, category_slug, product_slug):
 # def cart(request):
 #     return render(request, 'cart.html')
 
+
 def _cart_id(request):
     cart = request.session.session_key
     if not cart:
         cart = request.session.create()
     return cart
+
 
 def add_cart(request, product_id):
     product = Product.object.get(id=product_id)
@@ -47,6 +51,7 @@ def add_cart(request, product_id):
         cart_item.save()
     return redirect('cart_detail')
 
+
 def cart_detail(request, total=0, counter=0, cart_items=None):
     try:
         cart = Cart.objects.get(cart_id=_cart_id(request))
@@ -58,7 +63,3 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
         pass
 
     return render(request, 'cart.html', dict(cart_items=cart_items), total=total, counter=counter)
-
-
-
-

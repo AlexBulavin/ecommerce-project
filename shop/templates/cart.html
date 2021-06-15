@@ -50,12 +50,12 @@ Cart page
               <br>
               Unit price: ${{cart_item.product.price}}
               <br>
-              Quantity: {{cart_item.product.quantity}}
+              Quantity: {{cart_item.quantity}} x {{cart_item.product.price}}
             </td>
             <td class="text-start">
               Total sum: ${{cart_item.subtotal}}
             </td>
-            {% if cart_item.quantity < cart_item.product_stock %}
+            {% if cart_item.quantity < cart_item.product.stock %}
             <td>
               <!--              <div class="col-8 col-md-3 px-0 py-1 py-md-3 text-md-center">-->
               <button type="button" data-yandex-action="MinusProduct" class="btn btn-cart-action btn-sm btn-light my-2">
@@ -75,11 +75,11 @@ Cart page
               <a href="" style="text-decoration: none;">
                 <i class="material-icons cart-icon">remove</i>
               </a>
-              {{counter}}
-              <a href="{% 'add_cart' cart_items.product.id %}"style="text-decoration: none;">
+<!--              {{counter}}-->
+              <a href="{% 'add_cart' cart_item.product.id %}" style="text-decoration: none;">
                 <i class="material-icons cart-icon">add</i>
               </a>
-              <a href=""style="text-decoration: none;">
+              <a href="" style="text-decoration: none;">
                 <i class="material-icons cart-icon">delete</i>
               </a>
             </td>
@@ -88,8 +88,8 @@ Cart page
               <a href="" style="text-decoration: none;">
                 <i class="material-icons cart-icon">remove</i>
               </a>
-              {{counter}}
-              <a href=""style="text-decoration: none;">
+<!--              {{counter}}-->
+              <a href="" style="text-decoration: none;">
                 <i class="material-icons cart-icon">delete</i>
               </a>
             </td>

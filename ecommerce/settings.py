@@ -128,10 +128,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'ecommerce/static/' #Задаём путь для статических файлов
+    BASE_DIR / 'ecommerce/static/'  #Задаём путь для статических файлов
 ]
 
-STATIC_ROOT = BASE_DIR / 'static' #Реальный пуль к медиафайлам
+STATIC_ROOT = BASE_DIR / 'static'  #Реальный пуль к медиафайлам
 
 STATIC_URL = '/static/'
 
@@ -140,7 +140,6 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = BASE_DIR / 'static'/ 'media' #Реальный пуль к медиафайлам
+MEDIA_ROOT = BASE_DIR / 'static' / 'media'  #Реальный пуль к медиафайлам
 
-MEDIA_URL = '/media/'#Отображаемый в строке браузера путь к медиафайлам
-
+MEDIA_URL = '/media/'  #Отображаемый в строке браузера путь к медиафайлам
