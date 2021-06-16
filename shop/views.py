@@ -3,10 +3,10 @@ from .models import Category, Product, Cart, CartItem
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import Group, User
 from .forms import SignUpForm
-
+from django.contrib.auth.forms import AuthenticationForm #Импортируем встроенную форму аутентификации Djando
+from django.contrib.auth import login, authenticate, logout #Импортируем нативные модули логина и аутентификации Djando
 
 # Create your views here.
-
 
 def home(request, category_slug=None):
     category_page = None
@@ -111,3 +111,36 @@ def signUpView(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+def loginView(request):
+    if request.method == 'POST': #Проверяем, равен ли request метод POST
+        form = AuthenticationForm(data=request.POST) #Если да, то создаём переменную form и передаём в неё значение AuthenticationForm(request.POST)
+        #Проверяем валидность формы:
+        if form.is_valid():
+            #Если валидна, то создаём переменные username и password и передаём в них значения
+            username = request.POST['username']
+            password = request.POST['password']
+            #Создаём credentials
+            user = authenticate(username=username, password=password)
+            #Проверяем, существует ли пользователь, то есть не отсутствует ли он
+            if user is not None:
+                #Пропускаем пользователя на логин
+                login(request, user)
+                #Перенаправляем пользователя на главную страницу
+                return redirect('home')
+            #Иначе (если пользователь не существует), перенаправляем его на странизу SignUp
+            else:
+                return redirect('signup')
+    #Если метод не POST, присваиваем пустую форму
+    else:
+        #Создаём пустую форму
+        form = AuthenticationForm()
+        #И передаём её в login.html
+        return render(request, 'login.html', {'form': form})
+
+def signoutView(request):
+    logout(request)
+    return redirect('login')
+
+
+

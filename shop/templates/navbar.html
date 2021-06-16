@@ -573,6 +573,25 @@
       </li>
       <li class="nav-item"><a class="nav-link text-light text-uppercase font-weight-bold px-3" href="" onmouseover="this.style.backgroundColor='#777';" onmouseout="this.style.backgroundColor='#212529';">Contacts</a></li>
       <li class="nav-item"><a class="nav-link text-light text-uppercase font-weight-bold px-3" href="" onmouseover="this.style.backgroundColor='#777';" onmouseout="this.style.backgroundColor='#212529';">Product</a></li>
+<!--      Проверка залогинен ли пользователь-->
+      {% if request.user.is_authenticated and request.user.first_name %}
+      <li class="nav-item"><a class="nav-link text-light text-uppercase font-weight-bold px-3" href="" onmouseover="this.style.backgroundColor='#777';" onmouseout="this.style.backgroundColor='#212529';">Welcome, {{request.user.first_name}}!</a>
+        <img class="img-fluid" src="{% static 'images/login.svg'%}">
+      </li>
+<!--      Sign out-->
+      <li class="nav-item"><a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url 'signout' %}" onmouseover="this.style.backgroundColor='#777';" onmouseout="this.style.backgroundColor='#212529';">SignOut</a>
+        <img class="img-fluid" src="{% static 'images/login.svg'%}">
+      </li>
+<!--      Пользователь не залогинен, отправляем его на страницу signup.html-->
+      {% else %}
+      <li class="nav-item"><a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url 'signup' %}" onmouseover="this.style.backgroundColor='#777';" onmouseout="this.style.backgroundColor='#212529';">SignUp</a>
+        <img class="img-fluid" src="{% static 'images/login.svg'%}">
+      </li>
+      <li class="nav-item"><a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url 'login' %}" onmouseover="this.style.backgroundColor='#777';" onmouseout="this.style.backgroundColor='#212529';">Login</a>
+        <img class="img-fluid" src="{% static 'images/login.svg'%}">
+      </li>
+      {% endif %}
+
       {% if item_count > 0 %}
         <li class="nav-item"><a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url 'cart_detail' %}" onmouseover="this.style.backgroundColor='#777';" onmouseout="this.style.backgroundColor='#212529';">
           <i class="material-icons cart icon">add_shopping_cart</i>
