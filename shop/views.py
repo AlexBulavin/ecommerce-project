@@ -107,6 +107,7 @@ def signUpView(request):
             signup_user = User.objects.get(username=username)
             user_group = Group.objects.get(name='User')
             user_group.user_set.add(signup_user)
+
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
