@@ -57,14 +57,19 @@ Cart page
             </td>
             {% if cart_item.quantity < cart_item.product.stock %}
             <td>
+<!--              Кнопка уменьшения количества товаров в корзине -->
               <!--              <div class="col-8 col-md-3 px-0 py-1 py-md-3 text-md-center">-->
+              <a href="{% url 'cart_remove' cart_item.product.id %}" style="text-decoration: none;">
               <button type="button" data-yandex-action="MinusProduct" class="btn btn-cart-action btn-sm btn-light my-2">
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" class="svg-inline--fa fa-minus fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                   <path fill="currentColor" d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
                   </path>
                 </svg>
               </button>
+              </a>
+<!--              Количество товара-->
               <strong class="mx-3 mx-md-1">{{cart_item.quantity}}</strong>
+<!--              Кнопка добавления количества товаров в корзину -->
               <a href="{% url 'add_cart' cart_item.product.id %}" style="text-decoration: none;">
                 <button type="button" data-yandex-action="PlusProduct" class="btn btn-cart-action btn-sm btn-light my-2">
                   <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -73,30 +78,26 @@ Cart page
                   </svg>
                 </button>
               </a>
-              <!--              </div>-->
-<!--              <a href="" style="text-decoration: none;">-->
-<!--                <i class="material-icons cart-icon">remove</i>-->
-<!--              </a>-->
 
-<!--              <a href="{% url 'add_cart' cart_item.product.id %}" style="text-decoration: none;">-->
-<!--                <i class="material-icons cart-icon">add</i>-->
-<!--              </a>-->
-              <a href="" style="text-decoration: none;">
+              <!--              Кнопка удаления товаров из корзины -->
+              <a href="{% url 'cart_delete' cart_item.product.id %}" style="text-decoration: none;">
               <button data-yandex-action="MinusProduct" type="button" class="btn btn-cart-action btn-sm btn-light my-2"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg></button>
               </a>
             </td>
             {% else %}
             <td>
-<!--              <a href="" style="text-decoration: none;">-->
-<!--                <i class="material-icons cart-icon">remove</i>-->
-<!--              </a>-->
-              <button type="button" data-yandex-action="MinusProduct" class="btn btn-cart-action btn-sm btn-light my-2">
-                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" class="svg-inline--fa fa-minus fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  <path fill="currentColor" d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
-                  </path>
-                </svg>
-              </button>
+<!--              Кнопка уменьшения количества товаров в корзине -->
+              <a href="{% url 'cart_remove' cart_item.product.id %}" style="text-decoration: none;">
+                <button type="button" data-yandex-action="MinusProduct" class="btn btn-cart-action btn-sm btn-light my-2">
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" class="svg-inline--fa fa-minus fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path fill="currentColor" d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+                    </path>
+                  </svg>
+                </button>
+              </a>
+<!--              Количество товара-->
               <strong class="mx-3 mx-md-1">{{cart_item.quantity}}</strong>
+<!--              Кнопка добавления количества товаров в корзину. Она не активна, т.к. товаров на складе нет. Нужно обрабатывать нажатие и сообщать пользоватьелю об отсутствии товара. -->
               <a href="" style="text-decoration: none;">
                 <button type="button" data-yandex-action="PlusProduct" class="btn btn-cart-action btn-sm btn-light my-2">
                   <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14 " style="color: grey" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -105,7 +106,8 @@ Cart page
                   </svg>
                 </button>
               </a>
-              <a href="" style="text-decoration: none;">
+              <!--              Кнопка удаления товаров из корзины -->
+              <a href="{% url 'cart_delete' cart_item.product.id %}" style="text-decoration: none;">
                 <button data-yandex-action="MinusProduct" type="button" class="btn btn-cart-action btn-sm btn-light my-2"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg></button>
               </a>
             </td>

@@ -53,7 +53,7 @@ class Cart(models.Model):
     # date_added = models.DateField(auto_now_add=True)
 
     date = models.DateField(auto_now=True, blank=True)
-    date_added = models.DateTimeField(auto_now_add=True)
+    date_added = models.DateTimeField(auto_now_add=True) #Очень важное изменение по отношению к исходнику
 
     class Meta:
         ordering = ['date_added']
