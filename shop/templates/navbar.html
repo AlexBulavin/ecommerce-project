@@ -559,9 +559,13 @@
   </button>
   <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item dropdown" ><a class="nav-link text-light text-uppercase font-weight-bold px-3 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" onmouseover="this.style.backgroundColor='#777';" onmouseout="this.style.backgroundColor='#212529';">Categories</a>
+      <li class="nav-item dropdown" ><a class="nav-link text-light text-uppercase font-weight-bold px-3 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" onmouseover="this.style.backgroundColor='#777';" onmouseout="this.style.backgroundColor='#212529';" href="">Categories</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="{% url 'home' %}">All categories</a>
+          <a class="dropdown-item" href="">All categories1</a>
+          <a class="dropdown-item" href="">All categories2</a>
+          <a class="dropdown-item" href="">All categories3</a>
+          <a class="dropdown-item" href="">All categories4</a>
+          <a class="dropdown-item" href="{% url 'home' %}">All products</a>
           {% for category in links %}
           <a class="dropdown-item" href="{{category.get_url}}">{{category.name}}</a>
           {% endfor %}

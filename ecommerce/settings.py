@@ -81,7 +81,7 @@ DATABASES = {
 #         'NAME': BASE_DIR / 'db.sqlite3',
 
       'ENGINE': 'django.db.backends.postgresql',
-      'NAME': 'ecommercedb',
+      'NAME': 'ecommercetestdb',
       'USER': 'postgres',
       'PASSWORD': 'my312password86ecommerce-193pg',
       'HOST': 'localhost',

@@ -23,7 +23,7 @@ Cart page
     <br>
     <div class="text-center product_title">
       Shopping cart
-      {{product.title}}
+<!--      {{product.title}}-->
     </div>
   </div>
   <div class="row mx-auto">
@@ -39,7 +39,7 @@ Cart page
         {% for cart_item in cart_items %}
           <tr>
             <td>
-              <a href="cart_item.product.get_url">
+              <a href="{{ cart_item.product.get_url }}">
                 <img src="{{ cart_item.product.image.url }}">
               </a>
             </td>
@@ -76,7 +76,7 @@ Cart page
                 <i class="material-icons cart-icon">remove</i>
               </a>
 <!--              {{counter}}-->
-              <a href="{% 'add_cart' cart_item.product.id %}" style="text-decoration: none;">
+              <a href="{% url 'add_cart' cart_item.product.id %}" style="text-decoration: none;">
                 <i class="material-icons cart-icon">add</i>
               </a>
               <a href="" style="text-decoration: none;">

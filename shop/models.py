@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+import datetime
+from django.utils import timezone
 
 # Create your models here.
 
@@ -16,10 +18,10 @@ class Category(models.Model):
         verbose_name_plural = 'categories'
 
     def get_url(self):
-        return reverse('products_by_category', args=[self.slug])
+            return reverse('products_by_category', args=[self.slug])
 
     def __str__(self):
-        return self.name
+            return self.name
 
 
 class Product(models.Model):
@@ -48,7 +50,10 @@ class Product(models.Model):
 
 class Cart(models.Model):
     cart_id = models.CharField(max_length=250, blank=True)
-    date_added = models.DateField(auto_now=True)
+    # date_added = models.DateField(auto_now_add=True)
+
+    date = models.DateField(auto_now=True, blank=True)
+    date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['date_added']
@@ -58,12 +63,12 @@ class Cart(models.Model):
         return self.cart_id
 
 
-class DeliveryType(models.Model):
-    delivery_name = models.CharField(max_length=250, blank=True)
-    delivery_price = models.DecimalField(max_digits=10, decimal_places=2)
-
-    def __str__(self):  #Для отображения в БД реальных названий полей
-        return self.delivery_name
+# class DeliveryType(models.Model):
+#     delivery_name = models.CharField(max_length=250, blank=True)
+#     delivery_price = models.DecimalField(max_digits=10, decimal_places=2)
+#
+#     def __str__(self):  #Для отображения в БД реальных названий полей
+#         return self.delivery_name
 
 
 class CartItem(models.Model):
@@ -71,7 +76,7 @@ class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     active = models.BooleanField(default=True)
-    delivery_selection = models.ForeignKey(DeliveryType, on_delete=models.CASCADE)
+    # delivery_selection = models.ForeignKey(DeliveryType, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'CartItem'
@@ -83,8 +88,8 @@ class CartItem(models.Model):
         return self.product
 
 
-class OrderStatus(models.Model):
-    order_status= models.CharField(max_length=50, blank=True)
-
-    def __str__(self):  #Для отображения в БД реальных названий полей
-        return self.order_status
+# class OrderStatus(models.Model):
+#     order_status = models.CharField(max_length=50, blank=True)
+#
+#     def __str__(self):  #Для отображения в БД реальных названий полей
+#         return self.order_status
